@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+
+
+body {
+
+  max-width: 100%;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+
+}
+
+#nav {
+  display: flex;
+  flex-direction: row;
+  background-color:lightblue;
+  {#justify-content: space-between;#}
+  width: 100%;
+  max-width: 100%;
+}
+
+#words{
+    text-align: center;
+    color: #ec5f00;
+  background-color: #fef2e5;
+  border: 1px solid #f19b62;
+  border-radius: 5px;
+  padding: .6rem;
+  box-shadow: 4px 4px #f19b62;
+}
+#words a{
+    text-decoration: none;
+    color: lightseagreen;
+
+}
+
+#forms {
+    padding-left: 30rem;
+
+}
+
+#second_block h1{
+    align-items: center;
+    padding-left: 30rem;
+}
+
+    </style>
+</head>
+<body>
+
+<div>
+
+
+        <div class="web container">
+             <div id="nav">
+                <div class="nav header_logo">
+                    <h2>Nonso Twitter</h2>
+
+                </div>
+             </div>
+
+            <br>
+
+         <div id="words">
+             <a href="{% url 'home' %}" class="top-menu"> Add Your Post Here</a>
+         </div>
+        <div id="forms">
+
+             <form action="" method="post">
+                 {% csrf_token %}
+                 <table border="1">
+                     {{ form }}
+                 </table>
+
+                 <input type="submit" value="Save" />
+
+
+             </form>
+        </div>
+            <br>
+        <div id="second_block">
+            <h1>ALL POSTS</h1>
+
+            <hr>
+            <div>
+                 {% for tweet in tweets %}
+            <ul>
+
+                <h2> {{ tweet.name }} </h2>
+               <li>
+                    <p>{{ tweet.body }}</p>
+               </li>
+            </ul>
+                     <hr>
+
+
+{% endfor %}
+        </div>
+
+            </div>
+
+
+
+
+
+
+
+</div>
+{% block content %}
+{% endblock content %}
+
+
+</body>
+</html>
