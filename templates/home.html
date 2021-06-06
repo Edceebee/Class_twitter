@@ -60,12 +60,34 @@ body {
                     <h2>Nonso Twitter</h2>
 
                 </div>
+
+
              </div>
+
+
 
             <br>
 
+        <div>
+          {% if user.is_authenticated %}
+             <p>Hi {{ user.username }}!</p>
+             <a href="{% url 'logout' %}"> Log out</a>
+
+         {% else %}
+                     <p>You are not logged in.</p>
+             <a href="{% url 'login' %}">Log In</a>
+
+
+                 {% endif %}
+
+        </div>
+            <br>
+
+
+
          <div id="words">
              <a href="{% url 'home' %}" class="top-menu"> Add Your Post Here</a>
+              <a href="{% url 'login' %}" class="top-menu"> Add Your Post Here</a>
          </div>
         <div id="forms">
 

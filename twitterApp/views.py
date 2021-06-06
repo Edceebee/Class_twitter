@@ -19,6 +19,7 @@ from twitterApp.models import TwitterPost
 
 
 def home(request):
+    tweets = []
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -26,6 +27,9 @@ def home(request):
             post.save()
             return redirect('home')
     else:
-        tweets = TwitterPost.objects.all();
+        tweets = TwitterPost.objects.all()
         form = PostForm()
-    return render(request, 'twitterApp/home.html', {'form': form, 'tweets': tweets})
+    return render(request, 'home.html', {'form': form, 'tweets': tweets})
+
+
+
