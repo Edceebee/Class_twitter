@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: row;
   background-color:lightblue;
-  {#justify-content: space-between;#}
+  justify-content: space-between;
   width: 100%;
   max-width: 100%;
 }
@@ -48,7 +48,6 @@ body {
 }
 
     </style>
-</head>
 <body>
 
 <div>
@@ -71,14 +70,8 @@ body {
         <div>
           {% if user.is_authenticated %}
              <p>Hi {{ user.username }}!</p>
-             <a href="{% url 'logout' %}"> Log out</a>
-
-         {% else %}
-                     <p>You are not logged in.</p>
-             <a href="{% url 'login' %}">Log In</a>
-
-
-                 {% endif %}
+             <a href="{% url 'account_logout' %}"> Log out</a>
+          {% endif %}
 
         </div>
             <br>
@@ -86,8 +79,7 @@ body {
 
 
          <div id="words">
-             <a href="{% url 'home' %}" class="top-menu"> Add Your Post Here</a>
-              <a href="{% url 'login' %}" class="top-menu"> Add Your Post Here</a>
+             <h3 href="{% url 'home' %}" class="top-menu"> Add Your Post Here</h3>
          </div>
         <div id="forms">
 
@@ -135,5 +127,6 @@ body {
 {% endblock content %}
 
 
-</body>
+</div>
+ </body>
 </html>
